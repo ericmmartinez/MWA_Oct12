@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]>     <html class="ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en">         <!--<![endif]-->
+<head>
+	<title>My Diary</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+
+	<!-- CSS goes here -->
+	<link rel="stylesheet" href="css/index.css"/>
+
+	<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
+</head>
+<body>
+	<header>
+		<h1>My Diary</h1>
+		<nav>
+			<a class="addentry" href="#addentry">+</a>
+		</nav>
+	</header>
+
+	<div id="diary">
+		<!-- Markup for adding a new entry -->
+		<section id="addentry">
+			<label for="entry-title">Title</label>
+			<input type="text" name="entry-title" id="entry-title"/>
+
+			<label for="entry-content">Entry</label>
+			<textarea placeholder="I can't believe what just happened..."
+					name="entry-content" id="entry-content"></textarea>
+
+			<button name="entry-submit" id="entry-submit">Add</button>
+		</section>
+
+		<!-- Markup for displaying existing entries -->
+		<section id="entries">
+			<p>
+				Seems like nothing is here yet. Why not try
+				<a href="#addentry">adding one now</a>?
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+				sollicitudin venenatis laoreet. Nulla et magna et turpis
+				sollicitudin sagittis a sit amet neque. Pellentesque malesuada
+				condimentum elementum. Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Aliquam erat volutpat. Etiam cursus convallis sem,
+				vitae tristique nulla pellentesque sed. Integer eu ultrices erat.
+				Aliquam erat volutpat. Aliquam non mollis purus. Curabitur nunc
+				purus, tempor sed volutpat sed, dapibus in lectus. Proin rhoncus
+				convallis augue, ut dignissim ligula fringilla et.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+				sollicitudin venenatis laoreet. Nulla et magna et turpis
+				sollicitudin sagittis a sit amet neque. Pellentesque malesuada
+				condimentum elementum. Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Aliquam erat volutpat. Etiam cursus convallis sem,
+				vitae tristique nulla pellentesque sed. Integer eu ultrices erat.
+				Aliquam erat volutpat. Aliquam non mollis purus. Curabitur nunc
+				purus, tempor sed volutpat sed, dapibus in lectus. Proin rhoncus
+				convallis augue, ut dignissim ligula fringilla et.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+				sollicitudin venenatis laoreet. Nulla et magna et turpis
+				sollicitudin sagittis a sit amet neque. Pellentesque malesuada
+				condimentum elementum. Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Aliquam erat volutpat. Etiam cursus convallis sem,
+				vitae tristique nulla pellentesque sed. Integer eu ultrices erat.
+				Aliquam erat volutpat. Aliquam non mollis purus. Curabitur nunc
+				purus, tempor sed volutpat sed, dapibus in lectus. Proin rhoncus
+				convallis augue, ut dignissim ligula fringilla et.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+				sollicitudin venenatis laoreet. Nulla et magna et turpis
+				sollicitudin sagittis a sit amet neque. Pellentesque malesuada
+				condimentum elementum. Lorem ipsum dolor sit amet, consectetur
+				adipiscing elit. Aliquam erat volutpat. Etiam cursus convallis sem,
+				vitae tristique nulla pellentesque sed. Integer eu ultrices erat.
+				Aliquam erat volutpat. Aliquam non mollis purus. Curabitur nunc
+				purus, tempor sed volutpat sed, dapibus in lectus. Proin rhoncus
+				convallis augue, ut dignissim ligula fringilla et.
+			</p>
+		</section>
+	</div>
+
+	<!-- Polyfills for the page -->
+	<!--
+		11/16/12 - EMM: Each polyfill internally check for native
+		                implementations. The JSON3 even checks for partial, or
+							 broken implementations. All these polyfills add a small
+							 ammount to page weight. This was deemed acceptable since
+							 in production all scripts will be combined down to a
+							 single HTTP request.
+	-->
+	<!-- http://bestiejs.github.com/json3/ -->
+	<script src="js/json3.js"></script>
+	<!-- https://github.com/eligrey/classList.js -->
+	<script src="js/classList.js"></script>
+	<!-- https://github.com/remy/polyfills -->
+	<script src="js/Storage.js"></script>
+
+	<!-- Application code -->
+	<script src="js/index.js"></script>
+</body>
+</html>
