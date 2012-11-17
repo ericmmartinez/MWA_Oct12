@@ -1,28 +1,26 @@
-// Container for the diary
-var diaryContainer = null;
+document.addEventListener('DOMContentLoaded', function () {
+	var layout = new Layout(),
+		list = new List({
+			'el': document.getElementById('entries')
+		}),
+		addView = new AddView({
+			'el': document.getElementById('addentry'),
+			'isMobile': ('ontouchstart' in window),
+			'layout': layout,
+			'list': list
+		});
 
-var updateDiaryContext = function () {
-	var newContext = window.location.hash;
-
-	if (newContext === '') {
-		// Default context
-		newContext = 'addentry';
-	} else {
-		newContext = newContext.replace('#', '');
+	var onHashChange = function () {
+		var view = window.location.hash.replace('#', '');
+		if (view === Layout.VIEW_ADD || view === Layout.VIEW_LIST) {
+			layout.setView(view);
+		}
 	}
 
-	diaryContainer.classList.remove(
-		(newContext === 'addentry') ? 'entries' : 'addentry');
-	diaryContainer.classList.add(newContext);
-};
-
-document.addEventListener('DOMContentLoaded', function () {
-	// Set the container for the diary
-	diaryContainer = document.body;
 
 	// Set up context switching (add/view)
 	if ("onhashchange" in window) {
-		window.addEventListener('hashchange', updateDiaryContext);
+		window.addEventListener('hashchange', onHashChange);
 	} else {
 		// Hack. Check hash on an interval.
 		(function () {
@@ -31,12 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
 				var currentHash = window.location.hash;
 				if (currentHash !== knownHash) {
 					knownHash = currentHash;
-					updateDiaryContext();
+					onHashChange();
 				}
 			}, 250);
 		}).call(this);
 	}
 
-	// If user is returning to a bookmark with a hash, show proper context
-	updateDiaryContext();
+	onHashChange();
 });

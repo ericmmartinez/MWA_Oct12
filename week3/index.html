@@ -15,7 +15,8 @@
 	<header>
 		<h1>My Diary</h1>
 		<nav>
-			<a class="addentry" href="#addentry">+</a>
+			<a class="addentry" href="#add">&plus;</a>
+			<a class="entries" href="#list">&times;</a>
 		</nav>
 	</header>
 
@@ -29,6 +30,13 @@
 			<textarea placeholder="I can't believe what just happened..."
 					name="entry-content" id="entry-content"></textarea>
 
+			<label class="checkbox">
+				<input type="checkbox" name="entry-geolocate" id="entry-geolocate"/>
+				Include my location information
+			</label>
+
+			<input type="text" name="entry-date" id="entry-date" disabled/>
+
 			<button name="entry-submit" id="entry-submit">Add</button>
 		</section>
 
@@ -36,51 +44,7 @@
 		<section id="entries">
 			<p>
 				Seems like nothing is here yet. Why not try
-				<a href="#addentry">adding one now</a>?
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-				sollicitudin venenatis laoreet. Nulla et magna et turpis
-				sollicitudin sagittis a sit amet neque. Pellentesque malesuada
-				condimentum elementum. Lorem ipsum dolor sit amet, consectetur
-				adipiscing elit. Aliquam erat volutpat. Etiam cursus convallis sem,
-				vitae tristique nulla pellentesque sed. Integer eu ultrices erat.
-				Aliquam erat volutpat. Aliquam non mollis purus. Curabitur nunc
-				purus, tempor sed volutpat sed, dapibus in lectus. Proin rhoncus
-				convallis augue, ut dignissim ligula fringilla et.
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-				sollicitudin venenatis laoreet. Nulla et magna et turpis
-				sollicitudin sagittis a sit amet neque. Pellentesque malesuada
-				condimentum elementum. Lorem ipsum dolor sit amet, consectetur
-				adipiscing elit. Aliquam erat volutpat. Etiam cursus convallis sem,
-				vitae tristique nulla pellentesque sed. Integer eu ultrices erat.
-				Aliquam erat volutpat. Aliquam non mollis purus. Curabitur nunc
-				purus, tempor sed volutpat sed, dapibus in lectus. Proin rhoncus
-				convallis augue, ut dignissim ligula fringilla et.
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-				sollicitudin venenatis laoreet. Nulla et magna et turpis
-				sollicitudin sagittis a sit amet neque. Pellentesque malesuada
-				condimentum elementum. Lorem ipsum dolor sit amet, consectetur
-				adipiscing elit. Aliquam erat volutpat. Etiam cursus convallis sem,
-				vitae tristique nulla pellentesque sed. Integer eu ultrices erat.
-				Aliquam erat volutpat. Aliquam non mollis purus. Curabitur nunc
-				purus, tempor sed volutpat sed, dapibus in lectus. Proin rhoncus
-				convallis augue, ut dignissim ligula fringilla et.
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-				sollicitudin venenatis laoreet. Nulla et magna et turpis
-				sollicitudin sagittis a sit amet neque. Pellentesque malesuada
-				condimentum elementum. Lorem ipsum dolor sit amet, consectetur
-				adipiscing elit. Aliquam erat volutpat. Etiam cursus convallis sem,
-				vitae tristique nulla pellentesque sed. Integer eu ultrices erat.
-				Aliquam erat volutpat. Aliquam non mollis purus. Curabitur nunc
-				purus, tempor sed volutpat sed, dapibus in lectus. Proin rhoncus
-				convallis augue, ut dignissim ligula fringilla et.
+				<a href="#add">adding one now</a>?
 			</p>
 		</section>
 	</div>
@@ -102,6 +66,10 @@
 	<script src="js/Storage.js"></script>
 
 	<!-- Application code -->
+	<script src="js/Entry.js"></script>
+	<script src="js/AddView.js"></script>
+	<script src="js/List.js"></script>
+	<script src="js/Layout.js"></script>
 	<script src="js/index.js"></script>
 </body>
 </html>
