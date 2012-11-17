@@ -12,7 +12,6 @@ var AddView = (function () {
 			 _titleField = null,
 			 _contentField = null,
 			 _locationField = null,
-			 _dateField = null,
 			 _addButton = null;
 
 		var __construct = function (options) {
@@ -27,7 +26,6 @@ var AddView = (function () {
 			_titleField = document.getElementById('entry-title');
 			_contentField = document.getElementById('entry-content');
 			_locationField = document.getElementById('entry-geolocate');
-			_dateField = document.getElementById('entry-date');
 			_addButton = document.getElementById('entry-submit');
 
 			// If geolocation is not supported, hide the control in the view

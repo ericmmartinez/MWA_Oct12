@@ -104,7 +104,7 @@ header nav a {
 	position:absolute;
 	top:0; right:0; bottom:0; left:0;
 	z-index:2;
-	margin:0;
+	margin:-125% 0 0 0;
 	padding:8px;
 	max-height:100%;
 
@@ -117,8 +117,8 @@ header nav a {
 	-webkit-transform:translateZ(0);
 	-webkit-transition:margin .5s ease-out;
 }
-.list #addentry {
-	margin-top:-125%;
+.add #addentry {
+	margin-top:0;
 }
 #addentry label {
 	display:block;
@@ -146,13 +146,6 @@ header nav a {
 }
 #addentry #entry-checkbox {
 	margin-top:-2px;
-}
-#addentry #entry-date {
-	border:none;
-	float:right;
-	margin-top:3px;
-	font-style:italic;
-	font-size:.9em;
 }
 #addentry #entry-submit {
 	display:inline-block;
