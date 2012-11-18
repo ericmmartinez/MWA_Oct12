@@ -72,6 +72,15 @@ header nav a {
 }
 .add header nav .addentry,
 .list header nav .entries {
+	/* Mobile safari showing strange "phantom" outline periodically. Not sure how
+	 * to fix it. Hmm...
+	 *
+	 * Currently have tried:
+	 *      * z-index:-999;
+	 *      * margin-left:-9999px;
+	 *      * width:0; height:0;
+	 *      * opacity:0.0;
+	 */
 	display:none;
 }
 
@@ -93,7 +102,7 @@ header nav a {
 	top:0; left:0; right:0; bottom:0;
 	z-index:1;
 
-	padding:0 8px 8px;
+	padding:0;
 
 	overflow-y:auto;
 	-webkit-overflow-scrolling:touch;
@@ -116,6 +125,10 @@ header nav a {
 	-webkit-overflow-scrolling:touch;
 	-webkit-transform:translateZ(0);
 	-webkit-transition:margin .5s ease-out;
+	-moz-transition:margin .5s ease-out;
+	-ms-transition:margin .5s ease-out;
+	-o-transition:margin .5s ease-out;
+	transition:margin .5s ease-out;
 }
 .add #addentry {
 	margin-top:0;
@@ -168,4 +181,119 @@ header nav a {
 	background:-o-linear-gradient(top, rgba(255,255,255,0.3), transparent);
 	background:linear-gradient(top, rgba(255,255,255,0.3), transparent);
 	background-color:#324654;
+}
+
+
+
+#entries .getstarted {
+	margin-top:8px;
+	padding:0 8px;
+}
+#entries article {
+	margin:0;
+	background-color:#FFF;
+	padding:0 8px;
+}
+#entries article:first-child {
+	margin-top:6px;
+}
+#entries h3, #entries p {
+	height:0;
+	overflow:hidden;
+	margin:0;
+	padding:0;
+	opacity:0.0;
+
+	-webkit-transform:translateZ(0);
+	-webkit-transition:opacity .5s ease-in;
+	-moz-transition:opacity .5s ease-out;
+	-ms-transition:opacity .5s ease-out;
+	-o-transition:opacity .5s ease-out;
+	transition:opacity .5s ease-out;
+}
+#entries .visible h3, #entries .visible p {
+	margin-top:8px;
+	height:auto;
+	overflow:hidden;
+	opacity:1.0;
+}
+#entries .visible h3 {
+	margin-bottom:8px;
+}
+#entries .visible p {
+	padding-bottom:8px;
+}
+#entries h2 {
+	position:relative;
+	padding:4px 8px;
+	margin:0 -8px;
+
+	max-width:100%;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+
+	border-bottom:1px solid #677770;
+	background-color:#E5E5E5;
+	background:-webkit-linear-gradient(top, #FFF, #CCC);
+	background:-moz-linear-gradient(top, #FFF, #CCC);
+	background:-ms-linear-gradient(top, #FFF, #CCC);
+	background:-o-linear-gradient(top, #FFF, #CCC);
+	background:linear-gradient(top, #FFF, #CCC);
+	color:#324654;
+}
+#entries .visible h2 {
+	white-space:normal;
+	text-overflow:none;
+}
+#entries h2 a {
+	width:0; overflow:hidden;
+	position:absolute;
+	top:5px; right:8px;
+	z-index:1;
+
+	margin:0;
+	padding:4px 0;
+
+	color:#FFF;
+	text-decoration:none;
+	text-align:center;
+	font-size:.5em;
+
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-ms-border-radius:5px;
+	-o-border-radius:5px;
+	border-radius:5px;
+
+	background:-webkit-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+	background:-moz-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+	background:-ms-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+	background:-o-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+	background:linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+	background-color:#900;
+
+	-webkit-transform:translateZ(0);
+	-webkit-transition:width .25s ease-out;
+	-moz-transition:width .25s ease-out;
+	-ms-transition:width .25s ease-out;
+	-o-transition:width .25s ease-out;
+	transition:width .25s ease-out;
+}
+#entries .delete h2 a {
+	width:4em;
+	border:1px solid #FFF;
+}
+#entries h3 {
+	color:#666;
+	font-weight:normal;
+	font-family:Georgia, Time, serif;
+	font-size:.7em;
+	margin-top:0;
+}
+#entries h3 time {
+	display:block;
+	font-size:1.1em;
+}
+#entries p {
 }

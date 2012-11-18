@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 	var layout = new Layout(),
 		list = new List({
-			'el': document.getElementById('entries')
+			'el': document.getElementById('entries'),
+			'isMobile': ('ontouchstart' in window)
 		}),
 		addView = new AddView({
 			'el': document.getElementById('addentry'),
 			'isMobile': ('ontouchstart' in window),
-			'layout': layout,
 			'list': list
 		});
 

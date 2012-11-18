@@ -70,14 +70,19 @@ var Entry = (function () {
 
 			_markup = [
 				'<article id="', ID_PREFIX, _data.date, '">',
-					'<h2>', _data.title, '</h2>',
+					'<h2>',
+						_data.title,
+						'<a href="#delete-', ID_PREFIX, _data.date, '">',
+							'Delete',
+						'</a>',
+					'</h2>',
 					'<h3>',
 						'<time datetime="', timeStamp, '">',
 							formattedTime,
 						'</time>',
 						formattedPosition,
 					'</h3>',
-					_data.content,
+					'<p>', _data.content, '</p>',
 				'</article>'
 			].join('');
 		};

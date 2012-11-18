@@ -30,7 +30,11 @@
 			<textarea placeholder="I can't believe what just happened..."
 					name="entry-content" id="entry-content"></textarea>
 
-			<label class="checkbox">
+			<!--
+				IOS3 hack to foce label to be clickable. Use empty "onclick"
+				attribute.
+			-->
+			<label class="checkbox" onclick>
 				<input type="checkbox" name="entry-geolocate" id="entry-geolocate"/>
 				Include my location information
 			</label>
@@ -40,10 +44,10 @@
 
 		<!-- Markup for displaying existing entries -->
 		<section id="entries">
-			<p>
+			<div class="getstarted">
 				Seems like nothing is here yet. Why not try
 				<a href="#add">adding one now</a>?
-			</p>
+			</div>
 		</section>
 	</div>
 

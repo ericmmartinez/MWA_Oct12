@@ -1,7 +1,6 @@
 var AddView = (function () {
 	var DEFAULTS = {
 		isMobile: true,
-		layout: {setView: function() {}},
 		list: {add: function() {}}
 	};
 
@@ -39,23 +38,32 @@ var AddView = (function () {
 					_this.onViewSubmit);
 		};
 
+		var _clearForm = function () {
+			_titleField.value = '';
+			_contentField.value = '';
+			// Let's remember user preference for location information
+		};
+
 		this.onViewSubmit = function () {
+			// Note :: We're not validating the input here. If _you_ put in funky
+			// markup that ruins the page, _you_ just ruined it for _you_. Maybe in
+			// a production system we would validate, show errors, clean input
+			// etc..., but for now this seems okay.
+
 			var title = _titleField.value;
 			var content = _contentField.value;
 			var includeLocation = _locationField.checked;
 			var date = +new Date; 
 
 			var addEntry = function (data) {
-				var isGood = (data !== null && typeof data.coords !== 'undefined');
 
 				options.list.add(new Entry({
 					'title': title,
 					'content': content,
 					'date': date,
-					'location': (isGood) ? data.coords : null
+					'location': (data && data.coords) ? data.coords : null
 				}));
 
-				//options.layout.setView(Layout.VIEW_LIST);
 				window.location.hash = '#' + Layout.VIEW_LIST;
 			};
 
@@ -64,6 +72,8 @@ var AddView = (function () {
 			} else {
 				addEntry(null);
 			}
+
+			_clearForm();
 		};
 
 		__construct(options);
