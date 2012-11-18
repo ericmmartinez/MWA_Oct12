@@ -3,9 +3,8 @@ var List = (function () {
 	var CLASS_VISIBLE = 'visible'; // Must correspond with CSS
 	var CLASS_DELETE = 'delete';  
 	var DEFAULTS = {
-		clickTimeout: 250, // milliseconds
-		swipeXThreshold: 50,// pixels (more than this means a swipe)
-		swipeYThreshold: 50 // pixels (less than this means a swipe)
+		clickTimeout: 300, // milliseconds
+		swipeYThreshold: 20 // pixels (less than this means a swipe)
 	};
 
 	var List = function (options) {
@@ -119,27 +118,17 @@ var List = (function () {
 		};
 
 		var _handleEvent = function (start, end) {
-			var startX = (start.evt.changedTouches) ?
-					start.evt.changedTouches[0].clientX : start.evt.clientX;
 			var startY = (start.evt.changedTouches) ?
 					start.evt.changedTouches[0].clientY : start.evt.clientY;
-			var endX = (end.evt.changedTouches) ?
-					end.evt.changedTouches[0].clientX : end.evt.clientX;
 			var endY = (end.evt.changedTouches) ?
 					end.evt.changedTouches[0].clientY : end.evt.clientY;
 
-			if (endX - startX >= _options.swipeXThreshold &&
-					Math.abs(startY - endY) <= _options.swipYThreshold) {
-				// Event was a left-to-right swipe...
-				_onHeaderHold(end.evt);
-			} else if (end.stamp - start.stamp <= _options.clickTimeout) {
+			if (end.stamp - start.stamp <= _options.clickTimeout) {
 				// Event was a simple click/tap event...
 				_onHeaderActivate(end.evt);
-			} else {
+			} else if (Math.abs(startY - endY) <= _options.swipeYThreshold) {
 				// Event was a hold in place. Do same as swipe...
-				if (Math.abs(startY - endY) <= _options.swipeYThreshold) {
-					_onHeaderHold(end.evt);
-				}
+				_onHeaderHold(end.evt);
 			}
 
 		};
