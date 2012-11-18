@@ -67,10 +67,11 @@ header nav a {
 .add header nav .addentry,
 .list header nav .entries {
 	/**
-	 * display:none sometimes leaves an artifact in mobile Safari. Hide using
-	 * margin instead.
+	 * This can lead to a shadow artifact in mobile safari. Not sure how to fix
+	 * it. Tried many things with margin, padding, width, height, position, but
+	 * display seems to work *best* if not perfect.
 	 */
-	margin-left:-9999px;
+	display:none;
 }
 
 
