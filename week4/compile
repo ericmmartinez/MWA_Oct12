@@ -1,0 +1,7 @@
+cat index.html | grep script | grep -v 'lt IE 9' | grep -v 'in production ' | sed 's/<script src="//' | sed 's/"><\/script>//' | xargs cat > combined.js
+
+java -jar ~/bin/yuicompressor-2.4.7.jar  --type js -o js/compiled.js combined.js
+
+rm -f combined.js
+
+# Modify index.html in order to use new "js/compiled.js" script.
