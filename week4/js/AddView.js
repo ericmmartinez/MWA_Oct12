@@ -82,7 +82,7 @@ var AddView = (function () {
 		};
 
 		var _notify = function (message) {
-			alert(message);
+			Notifier.notify(message);
 		};
 
 		/**

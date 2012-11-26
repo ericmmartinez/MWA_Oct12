@@ -2,6 +2,7 @@
  * Create the diary application.
  */
 document.addEventListener('DOMContentLoaded', function () {
+	Notifier.notify('Loaded!');
 	var isMobile = ('ontouchstart' in document.createElement('a'));
 	var layout = new Layout();
 	var list = new List({

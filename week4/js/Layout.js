@@ -56,8 +56,25 @@ var Layout = (function () {
 				}).call(this);
 			}
 
-			_onHashChange();
+			// Add online status listener if supported
+			if ('onLine' in navigator) {
+				window.addEventListener('online', function () {
+					Notifier.notify('You are now online.');
+				});
+
+				window.addEventListener('offline', function () {
+					Notifier.notify('You are now offline.');
+				});
+
+				if (navigator.onLine) {
+					Notifier.notify('You are currently online.');
+				} else {
+					Notifier.notify('You are currently offline.');
+				}
+			}
+
 			_this.setView(_options.initialView);
+			_onHashChange();
 		};
 
 		/**
@@ -108,12 +125,6 @@ var Layout = (function () {
 			}
 		};
 
-
-		// TODO :: Is this used?
-		this.addContextListener = function (callback, context) {
-			callback.id = _listeners.length;
-			_listeners.push({'callback': callback, 'context': context||window});
-		};
 
 		__construct(options);
 	};

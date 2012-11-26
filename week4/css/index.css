@@ -286,3 +286,23 @@ header nav a {
 }
 #entries p {
 }
+
+.notification {
+	position:absolute;
+	bottom:0;
+	left:0; right:0;
+	padding:5px;
+	color:#F5F5F5;
+	background-color:#C46D3B;
+	line-height:1.5;
+	z-index:999;
+	opacity:1.0;
+	-webkit-transition: opacity 1s linear;
+	-moz-transition:    opacity 1s linear;
+	-ms-transition:     opacity 1s linear;
+	-o-transition:      opacity 1s linear;
+	transition:         opacity 1s linear;
+}
+.notification.remove {
+	opacity:0.0;
+}
