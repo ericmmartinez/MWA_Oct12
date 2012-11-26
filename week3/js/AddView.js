@@ -81,6 +81,10 @@ var AddView = (function () {
 			_contentField.value = '';
 		};
 
+		var _notify = function (message) {
+			alert(message);
+		};
+
 		/**
 		 * Adds the current entry to the diary. Input is not validated or even
 		 * ensured to be non-empty. This is a _user_ diary and the user can do
@@ -104,7 +108,6 @@ var AddView = (function () {
 			 *      also be null if user does not want position information.
 			 */
 			var addEntry = function (data) {
-
 				options.list.add({
 					'title': title,
 					'content': content,
@@ -112,17 +115,25 @@ var AddView = (function () {
 					'location': (data && data.coords) ? data.coords : null
 				});
 
-				// Use the hash change listener to switch back to list view
-				window.location.hash = '#' + Layout.VIEW_LIST;
+				// Let user know their efforts have failed
+				if (includeLocation && (!data || !data.coords)) {
+					_notify('Geolocation failed.');
+				}
+
 			};
 
 			if (includeLocation) {
-				navigator.geolocation.getCurrentPosition(addEntry, addEntry);
+				navigator.geolocation.getCurrentPosition(addEntry, addEntry,
+						{enableHighAccuracy: true, timeout: 10000});
 			} else {
 				addEntry(null);
 			}
 
+			// Reset the form
 			_clearForm();
+
+			// Use the hash change listener to switch back to list view
+			window.location.hash = '#' + Layout.VIEW_LIST;
 		};
 
 		// Call constructor now
